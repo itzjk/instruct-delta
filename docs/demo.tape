@@ -7,6 +7,7 @@ Set Padding 18
 Set Theme "Catppuccin Mocha"
 Set TypingSpeed 35ms
 Set Framerate 15
+Set LoopOffset 50%
 Hide
 Type "node docs/create-demo.mjs && cd .demo-repo"
 Enter
@@ -14,7 +15,7 @@ Sleep 1s
 Type "alias instruct-delta='node ../bin/instruct-delta.mjs'; export PS1='$ '; clear"
 Enter
 Show
-Type "git --no-pager diff --stat base head"
+Type "git --no-pager diff --stat base refs/tags/head"
 Enter
 Sleep 2s
 Ctrl+L

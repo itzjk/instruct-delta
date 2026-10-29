@@ -15,5 +15,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: npm test
+      - name: End-to-end and mutation tests
+        run: npm test
       - run: npm pack --dry-run
