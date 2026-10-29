@@ -1,0 +1,40 @@
+{
+  "name": "instruct-delta",
+  "version": "0.1.0",
+  "description": "See the file-level blast radius of changed agent instructions between Git revisions.",
+  "type": "module",
+  "bin": {
+    "instruct-delta": "bin/instruct-delta.mjs"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "docs/schema.json",
+    "docs/report.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "demo": "node docs/create-demo.mjs",
+    "test:mutations": "node scripts/check-mutations.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itzjk/instruct-delta"
+  },
+  "keywords": [
+    "agents-md",
+    "claude-md",
+    "code-review",
+    "git",
+    "developer-tools",
+    "cli",
+    "continuous-integration",
+    "monorepo"
+  ]
+}

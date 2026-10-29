@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="760" viewBox="0 0 1080 760" role="img" aria-label="CLI report showing root and API instruction coverage">
+<rect width="1080" height="760" rx="10" fill="#1e1e2e"/>
+<g font-family="monospace" font-size="16" fill="#cdd6f4">
+<text x="24" y="32" fill="#89dceb" xml:space="preserve">$ instruct-delta --base base --head head --limit 2</text>
+<text x="24" y="55" fill="#cdd6f4" xml:space="preserve">instruct-delta b042589c -&gt; 86ae03ab</text>
+<text x="24" y="78" fill="#cdd6f4" xml:space="preserve">2 changed instruction file(s) | 5 -&gt; 5 covered paths</text>
+<text x="24" y="101" fill="#cdd6f4" xml:space="preserve">Coverage: +0 gained, -0 lost, 5 retained</text>
+<text x="24" y="124" fill="#cdd6f4" xml:space="preserve">Structural directory coverage; paths are compared by name.</text>
+<text x="24" y="147" fill="#cdd6f4" xml:space="preserve"></text>
+<text x="24" y="170" fill="#89dceb" xml:space="preserve">MODIFIED &quot;AGENTS.md&quot;</text>
+<text x="24" y="193" fill="#cdd6f4" xml:space="preserve">  before: file (100644)</text>
+<text x="24" y="216" fill="#cdd6f4" xml:space="preserve">  after: file (100644)</text>
+<text x="24" y="239" fill="#cdd6f4" xml:space="preserve">  base coverage: 5</text>
+<text x="24" y="262" fill="#cdd6f4" xml:space="preserve">    &quot;AGENTS.md&quot;</text>
+<text x="24" y="285" fill="#cdd6f4" xml:space="preserve">    &quot;README.md&quot;</text>
+<text x="24" y="308" fill="#cdd6f4" xml:space="preserve">    ... 3 more; use --json for every path</text>
+<text x="24" y="331" fill="#cdd6f4" xml:space="preserve">  head coverage: 5</text>
+<text x="24" y="354" fill="#cdd6f4" xml:space="preserve">    &quot;AGENTS.md&quot;</text>
+<text x="24" y="377" fill="#cdd6f4" xml:space="preserve">    &quot;README.md&quot;</text>
+<text x="24" y="400" fill="#cdd6f4" xml:space="preserve">    ... 3 more; use --json for every path</text>
+<text x="24" y="423" fill="#cdd6f4" xml:space="preserve">  +0 gained, -0 lost, 5 retained</text>
+<text x="24" y="446" fill="#cdd6f4" xml:space="preserve"></text>
+<text x="24" y="469" fill="#89dceb" xml:space="preserve">MODIFIED &quot;packages/api/CLAUDE.md&quot;</text>
+<text x="24" y="492" fill="#cdd6f4" xml:space="preserve">  before: file (100644)</text>
+<text x="24" y="515" fill="#cdd6f4" xml:space="preserve">  after: file (100644)</text>
+<text x="24" y="538" fill="#cdd6f4" xml:space="preserve">  base coverage: 2</text>
+<text x="24" y="561" fill="#cdd6f4" xml:space="preserve">    &quot;packages/api/CLAUDE.md&quot;</text>
+<text x="24" y="584" fill="#cdd6f4" xml:space="preserve">    &quot;packages/api/server.js&quot;</text>
+<text x="24" y="607" fill="#cdd6f4" xml:space="preserve">  head coverage: 2</text>
+<text x="24" y="630" fill="#cdd6f4" xml:space="preserve">    &quot;packages/api/CLAUDE.md&quot;</text>
+<text x="24" y="653" fill="#cdd6f4" xml:space="preserve">    &quot;packages/api/server.js&quot;</text>
+<text x="24" y="676" fill="#cdd6f4" xml:space="preserve">  +0 gained, -0 lost, 2 retained</text>
+</g>
+</svg>

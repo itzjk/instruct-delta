@@ -1,0 +1,258 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/itzjk/instruct-delta/blob/main/docs/schema.json",
+  "title": "instruct-delta report version 1",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "revisions",
+    "summary",
+    "changes"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "revisions": {
+      "type": "object",
+      "required": [
+        "base",
+        "head"
+      ],
+      "properties": {
+        "base": {
+          "$ref": "#/$defs/revision"
+        },
+        "head": {
+          "$ref": "#/$defs/revision"
+        }
+      }
+    },
+    "summary": {
+      "$ref": "#/$defs/summary"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/change"
+      }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": [
+        "path",
+        "mode",
+        "oid",
+        "kind"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "100644",
+            "100755",
+            "120000",
+            "160000"
+          ]
+        },
+        "oid": {
+          "type": "string",
+          "pattern": "^([a-f0-9]{40}|[a-f0-9]{64})$"
+        },
+        "kind": {
+          "enum": [
+            "file",
+            "symlink",
+            "submodule"
+          ]
+        }
+      }
+    },
+    "instruction": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entry"
+        },
+        {
+          "type": "object",
+          "required": [
+            "directory"
+          ],
+          "properties": {
+            "directory": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "pathSet": {
+      "type": "object",
+      "required": [
+        "count",
+        "paths"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "delta": {
+      "type": "object",
+      "required": [
+        "gained",
+        "lost",
+        "retained"
+      ],
+      "properties": {
+        "gained": {
+          "$ref": "#/$defs/pathSet"
+        },
+        "lost": {
+          "$ref": "#/$defs/pathSet"
+        },
+        "retained": {
+          "$ref": "#/$defs/pathSet"
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "count",
+        "entries"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entry"
+          }
+        }
+      }
+    },
+    "revision": {
+      "type": "object",
+      "required": [
+        "ref",
+        "commit",
+        "tree"
+      ],
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "commit": {
+          "type": "string"
+        },
+        "tree": {
+          "type": "string"
+        }
+      }
+    },
+    "summary": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/delta"
+        },
+        {
+          "type": "object",
+          "required": [
+            "changedInstructions",
+            "baseCovered",
+            "headCovered"
+          ],
+          "properties": {
+            "changedInstructions": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "baseCovered": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "headCovered": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    },
+    "change": {
+      "type": "object",
+      "required": [
+        "status",
+        "before",
+        "after",
+        "coverage",
+        "delta"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "added",
+            "modified",
+            "renamed",
+            "deleted"
+          ]
+        },
+        "before": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/instruction"
+            }
+          ]
+        },
+        "after": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/instruction"
+            }
+          ]
+        },
+        "coverage": {
+          "type": "object",
+          "required": [
+            "base",
+            "head"
+          ],
+          "properties": {
+            "base": {
+              "$ref": "#/$defs/coverage"
+            },
+            "head": {
+              "$ref": "#/$defs/coverage"
+            }
+          }
+        },
+        "delta": {
+          "$ref": "#/$defs/delta"
+        }
+      }
+    }
+  }
+}
