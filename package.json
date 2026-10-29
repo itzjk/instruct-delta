@@ -15,7 +15,7 @@
     "README.md"
   ],
   "scripts": {
-    "test": "node --test",
+    "test": "node --test --test-reporter=tap",
     "demo": "node docs/create-demo.mjs",
     "test:mutations": "node scripts/check-mutations.mjs"
   },

@@ -5,7 +5,31 @@ See which files an instruction change reaches before merging a pull request.
 [![Tests](https://github.com/itzjk/instruct-delta/actions/workflows/test.yml/badge.svg)](https://github.com/itzjk/instruct-delta/actions/workflows/test.yml)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-![Root instructions cover the monorepo; nested instructions cover the API package](docs/demo.svg)
+```text
+$ instruct-delta --base base --head head --limit 0
+instruct-delta b042589c -> 86ae03ab
+2 changed instruction file(s) | 5 -> 5 covered paths
+Coverage: +0 gained, -0 lost, 5 retained
+Structural directory coverage; paths are compared by name.
+
+MODIFIED "AGENTS.md"
+  before: file (100644)
+  after: file (100644)
+  base coverage: 5
+    ... 5 more; use --json for every path
+  head coverage: 5
+    ... 5 more; use --json for every path
+  +0 gained, -0 lost, 5 retained
+
+MODIFIED "packages/api/CLAUDE.md"
+  before: file (100644)
+  after: file (100644)
+  base coverage: 2
+    ... 2 more; use --json for every path
+  head coverage: 2
+    ... 2 more; use --json for every path
+  +0 gained, -0 lost, 2 retained
+```
 
 ## Quick start
 

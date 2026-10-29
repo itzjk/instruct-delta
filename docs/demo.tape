@@ -2,7 +2,7 @@ Output docs/demo.gif
 Set Shell "bash"
 Set FontSize 17
 Set Width 1100
-Set Height 800
+Set Height 900
 Set Padding 18
 Set Theme "Catppuccin Mocha"
 Set TypingSpeed 35ms
@@ -17,6 +17,7 @@ Show
 Type "git --no-pager diff --stat base head"
 Enter
 Sleep 2s
+Ctrl+L
 Type "instruct-delta --base base --head head --limit 2"
 Enter
 Sleep 9s
